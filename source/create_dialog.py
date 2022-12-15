@@ -29,12 +29,19 @@ class CreateDialog(Ui_Dialog, QDialog):
     def keyPressEvent(self, event: QKeyEvent):
         if event.key() == Qt.Key_Escape:
             self.close()
+        if event.key() == Qt.Key_Minus:
+            self.stackedWidget.setCurrentIndex(0)
+
         if self.stackedWidget.currentIndex() == 1:
             if int(event.modifiers()) == Qt.ControlModifier:
-                if event.key() == Qt.Key_Enter:
+                if event.key() == Qt.Key_Space:
                     print("db add payment and check valid")
+
         elif self.stackedWidget.currentIndex() == 2:
             if int(event.modifiers()) == Qt.ControlModifier:
-                if event.key() == Qt.Key_Enter:
+                if event.key() == Qt.Key_Space:
                     print("db add category and check valid")
+            if int(event.modifiers()) == Qt.ShiftModifier:
+                if event.key() == Qt.Key_E:
+                    self.essential_btn.setChecked(not self.essential_btn.isChecked())
 

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(778, 267)
+        Dialog.resize(778, 272)
         Dialog.setStyleSheet("QDialog {\n"
 "    background-color: #040c0e;\n"
 "}\n"
@@ -256,7 +256,7 @@ class Ui_Dialog(object):
         self.verticalLayout.addWidget(self.stackedWidget)
 
         self.retranslateUi(Dialog)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
@@ -266,10 +266,10 @@ class Ui_Dialog(object):
         self.label_5.setText(_translate("Dialog", "new"))
         self.add_payment_btn.setText(_translate("Dialog", "Расход"))
         self.add_category_btn.setText(_translate("Dialog", "Категория"))
-        self.label.setText(_translate("Dialog", "[Ctrl + Enter]"))
+        self.label.setText(_translate("Dialog", "[Ctrl + Space]"))
         self.payment_le.setText(_translate("Dialog", "название"))
         self.label_4.setText(_translate("Dialog", "Новый расход"))
         self.cost_le.setText(_translate("Dialog", "цена"))
-        self.label_2.setText(_translate("Dialog", "[Ctrl + Enter]"))
+        self.label_2.setText(_translate("Dialog", "[Ctrl + Space]"))
         self.essential_btn.setText(_translate("Dialog", "обязательный расход? [Shift + E]"))
         self.label_3.setText(_translate("Dialog", "Новая категория расходов"))

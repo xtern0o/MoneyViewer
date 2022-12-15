@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>778</width>
-    <height>267</height>
+    <height>272</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -139,7 +139,7 @@ QComboBox QListView::item:hover {
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="choice_page">
       <layout class="QGridLayout" name="gridLayout">
@@ -284,7 +284,7 @@ QComboBox QListView::item:hover {
           </size>
          </property>
          <property name="text">
-          <string>[Ctrl + Enter]</string>
+          <string>[Ctrl + Space]</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -449,7 +449,7 @@ QComboBox QListView::item:hover {
           </size>
          </property>
          <property name="text">
-          <string>[Ctrl + Enter]</string>
+          <string>[Ctrl + Space]</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
