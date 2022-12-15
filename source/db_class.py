@@ -4,7 +4,7 @@ import sqlite3
 class Db:
     """Класс для работы с базой данных database/buy_database.sqlite3"""
     def __init__(self):
-        self.con = sqlite3.connect("database/buy_database.sqlite3")
+        self.con = sqlite3.connect("source/database/buy_database.sqlite3")
         self.cur = self.con.cursor()
 
     def add_user(self, username: str, password: str, remember: bool) -> None:

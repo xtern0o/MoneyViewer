@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow
 
 from source.db_class import Db
-from ui_generated_py_files.ui_mainmenu import Ui_MainMenu
+from source.ui_generated_py_files.ui_mainmenu import Ui_MainMenu
 
 
 class MainMenu(Ui_MainMenu, QMainWindow):

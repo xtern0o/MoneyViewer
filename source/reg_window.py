@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QMainWindow
 
-from ui_generated_py_files.ui_reg_window import Ui_RegWindow
-from main_menu import MainMenu
-from db_class import Db
+from source.ui_generated_py_files.ui_reg_window import Ui_RegWindow
+from source.main_menu import MainMenu
+from source.db_class import Db
 
 
 def password_small_validation(pwd: str) -> bool:
@@ -43,6 +43,8 @@ class RegWindow(Ui_RegWindow, QMainWindow):
 
             self.main_menu = MainMenu(user_id, self)
             self.main_menu.show()
+        else:
+            self.statusbar.showMessage("[!] Неправильный логин и/или пароль")
 
     def reg(self):
         if self.db.does_exists_user_with_this_username(self.login_le.text()):
