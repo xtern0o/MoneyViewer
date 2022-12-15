@@ -1,4 +1,4 @@
 # MoneyViewer
 Денежный трекер (Школьный проект)
 
-status: in-dev
+status: deep in-dev
