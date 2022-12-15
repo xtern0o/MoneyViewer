@@ -3,6 +3,8 @@ import sqlite3
 
 class Db:
     """Класс для работы с базой данных database/buy_database.sqlite3"""
+    """Hello, Viktor Latkin and Alexader Duryagin! это все мое если что"""
+
     def __init__(self):
         self.con = sqlite3.connect("source/database/buy_database.sqlite3")
         self.cur = self.con.cursor()
@@ -51,5 +53,9 @@ class Db:
 
         return self.cur.execute("""SELECT * FROM users WHERE username = ?""", (username, )).fetchone() is not None
 
+    def get_username(self, userid):
+        """Returns username by getting userid lol!"""
+
+        return self.cur.execute("""SELECT username FROM users WHERE id = ?""", (userid, )).fetchone()[0]
 
 

@@ -56,4 +56,3 @@ class RegWindow(Ui_RegWindow, QMainWindow):
                                            " Успешно зарегистрирован".format(self.login_le.text()), 2500)
             else:
                 self.statusbar.showMessage("[!] Длина пароля должна быть больше либо равна 4, а логина - больше 3")
-

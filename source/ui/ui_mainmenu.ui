@@ -36,11 +36,6 @@ QPushButton {
     font-size: 20px;
     letter-spacing: 2px;
     word-spacing: 6px;
-    font-weight: normal;
-    text-decoration: none;
-    font-style: normal;
-    font-variant: small-caps;
-    text-transform: lowercase;
     background-color: #132226;
     color: #a4978e;
     border-radius: 12px;

@@ -12,6 +12,8 @@ class MainMenu(Ui_MainMenu, QMainWindow):
         self.user_id = user_id
         self.reg_window = parent
 
+        self.username_lbl.setText(self.db.get_username(self.user_id))
+
         self.exit_btn.clicked.connect(self.logout)
 
     def logout(self):
