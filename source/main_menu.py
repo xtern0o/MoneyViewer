@@ -10,4 +10,14 @@ class MainMenu(Ui_MainMenu, QMainWindow):
         self.db = Db()
         self.setupUi(self)
         self.user_id = user_id
-        self.parent = parent
+        self.reg_window = parent
+
+        self.exit_btn.clicked.connect(self.logout)
+
+    def logout(self):
+        self.db.set_remembered(self.user_id, False)
+        self.reg_window.login_le.setText("")
+        self.reg_window.password_le.setText("")
+        self.reg_window.remember_btn.setChecked(False)
+        self.close()
+
