@@ -1,5 +1,4 @@
-import datetime as dt
-from PyQt5.QtWidgets import QDialog, QButtonGroup, QCheckBox
+from PyQt5.QtWidgets import QDialog, QCheckBox
 from PyQt5.QtCore import Qt, QDateTime
 from PyQt5.QtGui import QKeyEvent
 
@@ -12,7 +11,7 @@ class FilterDialog(Ui_FilterDialog, QDialog):
     def __init__(self, parent=None):
         super().__init__()
         self.setupUi(self)
-        self.dt_2.setDateTime(dt.datetime.now())
+        self.dt_2.setDateTime(QDateTime.currentDateTime())
 
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
@@ -48,9 +47,8 @@ class FilterDialog(Ui_FilterDialog, QDialog):
                 date2 = self.dt_2.dateTime()
                 selected_cats = [cat.text() for cat in list(filter(lambda btn: btn.isChecked(),
                                                          self.categories_from_custon_choice))]
-                self.payment_data_window.refresh(dates=(date1, date2), cats=selected_cats)
-
-                # self.payment_data_window.refresh(args)
+                self.payment_data_window.refresh(filter_dates=(date1, date2), filter_cats=selected_cats)
+                self.close()
         if event.key() == Qt.Key_Escape:
             self.close()
 

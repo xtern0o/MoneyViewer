@@ -19,3 +19,18 @@ QCheckBox::indicator:checked {
 	background-color: #be9063;
 }
 """
+ERROR_LABEL_STYLESHEET = """
+QLabel {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    color: red;
+}
+QLabel:hover {
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    color: #F3E0D2;
+}
+"""

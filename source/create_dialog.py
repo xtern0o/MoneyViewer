@@ -5,6 +5,7 @@ from PyQt5.QtGui import QKeyEvent
 
 from source.ui_generated_py_files.ui_create_dialog import Ui_Dialog
 from source.db_class import Db
+from source.other_stylesheets import ERROR_LABEL_STYLESHEET
 
 
 class CreateDialog(Ui_Dialog, QDialog):
@@ -46,14 +47,17 @@ class CreateDialog(Ui_Dialog, QDialog):
                     category = self.category_cb.currentText()
                     cost = self.cost_le.text()
                     current_dt = str(dt.datetime.now())
-                    if self.is_valid_new_payment_data(name, category, cost) and self.is_valid_category(category):
+                    if self.is_valid_new_payment_data(category, cost) and self.is_valid_category(category):
                         if self.db.add_new_payment(self.user_id, name, category, cost, current_dt):
                             self.close()
                         else:
-                            print("категории не существует")
-                            # TODO: доработать логику корректности
+                            self.label_4.setText("Категории не существует")
+                            self.label_4.setStyleSheet(ERROR_LABEL_STYLESHEET)
                     else:
-                        print("что то не так доработать")
+                        self.label_4.setText("Некорректный ввод")
+                        self.label_4.setStyleSheet(ERROR_LABEL_STYLESHEET)
+            if event.key() == Qt.Key_Escape:
+                self.close()
 
         elif self.stackedWidget.currentIndex() == 2:
             if int(event.modifiers()) == Qt.ControlModifier:
@@ -66,10 +70,16 @@ class CreateDialog(Ui_Dialog, QDialog):
             if int(event.modifiers()) == Qt.ShiftModifier:
                 if event.key() == Qt.Key_E:
                     self.essential_btn.setChecked(not self.essential_btn.isChecked())
+            if event.key() == Qt.Key_Escape:
+                self.close()
 
-    def is_valid_new_payment_data(self, name, cat, cost):
-        # TODO: сделать проверку валидности расхода
-        return True
+    def is_valid_new_payment_data(self, cost):
+        try:
+            if int(cost):
+                return True
+            return False
+        except Exception:
+            return False
 
     def is_valid_category(self, cat_name):
         return cat_name != "" and cat_name != "категория"
