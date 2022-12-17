@@ -2,6 +2,7 @@ import datetime
 from PyQt5.QtWidgets import QWidget
 
 from source.ui_generated_py_files.ui_paymentdata import Ui_PaymentData
+from source.filter_dialog import FilterDialog
 
 
 class PaymentData(Ui_PaymentData, QWidget):
@@ -19,5 +20,10 @@ class PaymentData(Ui_PaymentData, QWidget):
         self.filter_btn.clicked.connect(self.set_filter)
 
     def set_filter(self):
+        self.filter_dialog = FilterDialog(self)
+        self.filter_dialog.show()
+
+    def refresh(self, *args):
+        # TODO: рефрешер
         pass
 

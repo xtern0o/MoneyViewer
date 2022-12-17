@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>686</width>
-    <height>515</height>
+    <height>527</height>
    </rect>
   </property>
   <property name="font">
@@ -52,7 +52,7 @@ QLabel#label_3 {
     word-spacing: 6px;
     color: #be9063;
 	background-color: #040c0e;
-	border-radius: 5px;
+	border-radius: 15px;
 }
 QRadioButton {
 	font-family: Verdana, Geneva, sans-serif;
@@ -74,10 +74,14 @@ QRadioButton::indicator:checked {
 	background-color: #be9063;
 }
 
-QListWidget {
+QScrollArea {
 	background-color: #132226;
 	border-radius: 15px;
 	padding: 10px;
+}
+QWidget#scrollAreaWidgetContents {
+	background-color: #132226;
+	border: 0px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -96,7 +100,7 @@ QListWidget {
       </size>
      </property>
      <property name="text">
-      <string>FIlter</string>
+      <string>Filter</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -112,48 +116,6 @@ QListWidget {
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Показать расходы с...</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_2">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>до...</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QDateTimeEdit" name="dateTimeEdit">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="1">
        <widget class="QDateTimeEdit" name="dateTimeEdit_2">
         <property name="minimumSize">
@@ -251,14 +213,68 @@ QListWidget {
         </property>
        </widget>
       </item>
+      <item row="1" column="0">
+       <widget class="QDateTimeEdit" name="dateTimeEdit">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Показать расходы с...</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_2">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>до...</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
       <item row="4" column="0" colspan="2">
-       <widget class="QListWidget" name="cat_list">
-        <property name="enabled">
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <property name="sortingEnabled">
-         <bool>false</bool>
-        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>618</width>
+           <height>245</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="bittons_layout"/>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </item>
      </layout>

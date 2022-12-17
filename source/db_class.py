@@ -79,7 +79,7 @@ class Db:
     def get_exist_categories(self) -> list:
         """Returns list of categories which are exist at this moment"""
 
-        return [row[0] for row in self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall() ]
+        return [row[0] for row in self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()]
 
     def add_new_category(self, category_name, essential):
         """Adds new category to the categoy table"""
