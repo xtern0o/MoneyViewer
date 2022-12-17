@@ -23,7 +23,7 @@ class PaymentData(Ui_PaymentData, QWidget):
         self.filter_dialog = FilterDialog(self)
         self.filter_dialog.show()
 
-    def refresh(self, *args):
-        # TODO: рефрешер
-        pass
+    def refresh(self, **kwargs):
+        # TODO: ререшер фильтр
+        print(kwargs)
 

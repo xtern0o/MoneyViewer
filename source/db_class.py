@@ -81,6 +81,11 @@ class Db:
 
         return [row[0] for row in self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()]
 
+    def get_categories_info(self) -> list:
+        """Returns list of categories with essential"""
+
+        return self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()
+
     def add_new_category(self, category_name, essential):
         """Adds new category to the categoy table"""
 
