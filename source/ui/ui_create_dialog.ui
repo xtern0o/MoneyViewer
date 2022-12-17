@@ -139,7 +139,7 @@ QComboBox QListView::item:hover {
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="choice_page">
       <layout class="QGridLayout" name="gridLayout">
@@ -223,7 +223,7 @@ QComboBox QListView::item:hover {
           <item>
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>new</string>
+             <string>Новый(-ая)</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -284,7 +284,7 @@ QComboBox QListView::item:hover {
           </size>
          </property>
          <property name="text">
-          <string>[Ctrl + Space]</string>
+          <string>[Ctrl + Q]</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -449,7 +449,7 @@ QComboBox QListView::item:hover {
           </size>
          </property>
          <property name="text">
-          <string>[Ctrl + Space]</string>
+          <string>[Ctrl + Q]</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>

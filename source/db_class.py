@@ -68,16 +68,25 @@ class Db:
         """, (category, )).fetchone()[0]
 
         self.cur.execute("""
-        INSERT INTO payments(user_id, name, category_id, cost, date) VALUES
-        (?, ?, ?, ?, ?)
+        INSERT INTO payments(user_id, name, category_id, cost, date) 
+        VALUES (?, ?, ?, ?, ?)
         """, (userid, pname, category_id, cost, date))
         self.con.commit()
 
     def get_exist_categories(self):
-        """returns tuple of categories which are exist at this moment"""
+        """Returns tuple of categories which are exist at this moment"""
 
         return self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()
 
+    def add_new_category(self, category_name, essential):
+        """Adds new category to the categoy table"""
+
+        if category_name not in [row[0] for row in self.cur.execute("SELECT category_name FROM categories").fetchall()]:
+            self.cur.execute("""
+            INSERT INTO categories(category_name, essential)
+            VALUES (?, ?)
+            """, (category_name, essential))
+            self.con.commit()
 
 
 

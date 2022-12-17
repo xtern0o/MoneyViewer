@@ -39,7 +39,7 @@ class CreateDialog(Ui_Dialog, QDialog):
 
         if self.stackedWidget.currentIndex() == 1:
             if int(event.modifiers()) == Qt.ControlModifier:
-                if event.key() == Qt.Key_Space:
+                if event.key() == Qt.Key_Q:
                     name = self.payment_le.text()
                     category = self.category_cb.currentText()
                     cost = self.cost_le.text()
@@ -49,12 +49,19 @@ class CreateDialog(Ui_Dialog, QDialog):
 
         elif self.stackedWidget.currentIndex() == 2:
             if int(event.modifiers()) == Qt.ControlModifier:
-                if event.key() == Qt.Key_Space:
-                    print("db add category and check valid")
+                if event.key() == Qt.Key_Q:
+                    name = self.category_le.text()
+                    essential = self.essential_btn.isChecked()
+                    if self.is_valid_category(name):
+                        self.db.add_new_category(name, essential)
             if int(event.modifiers()) == Qt.ShiftModifier:
                 if event.key() == Qt.Key_E:
                     self.essential_btn.setChecked(not self.essential_btn.isChecked())
 
     def is_valid_new_payment_data(self, name, cat, cost):
+        # TODO: сделать проверку валидности расхода
         return True
+
+    def is_valid_category(self, cat_name):
+        return cat_name != "" and cat_name != "категория"
 

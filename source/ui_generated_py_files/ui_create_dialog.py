@@ -256,20 +256,20 @@ class Ui_Dialog(object):
         self.verticalLayout.addWidget(self.stackedWidget)
 
         self.retranslateUi(Dialog)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label_6.setText(_translate("Dialog", "[↑] [↓] [Tab] [Enter]"))
-        self.label_5.setText(_translate("Dialog", "new"))
+        self.label_5.setText(_translate("Dialog", "Новый(-ая)"))
         self.add_payment_btn.setText(_translate("Dialog", "Расход"))
         self.add_category_btn.setText(_translate("Dialog", "Категория"))
-        self.label.setText(_translate("Dialog", "[Ctrl + Space]"))
+        self.label.setText(_translate("Dialog", "[Ctrl + Q]"))
         self.payment_le.setText(_translate("Dialog", "название"))
         self.label_4.setText(_translate("Dialog", "Новый расход"))
         self.cost_le.setText(_translate("Dialog", "цена"))
-        self.label_2.setText(_translate("Dialog", "[Ctrl + Space]"))
+        self.label_2.setText(_translate("Dialog", "[Ctrl + Q]"))
         self.essential_btn.setText(_translate("Dialog", "обязательный расход? [Shift + E]"))
         self.label_3.setText(_translate("Dialog", "Новая категория расходов"))
