@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>441</height>
+    <width>816</width>
+    <height>482</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,15 +27,31 @@ QWidget#scrollAreaWidgetContents {
 }
 QScrollArea {
 	border-color: #040c0e;
+}
+QPushButton {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    background-color: #132226;
+    color: #a4978e;
+    border-radius: 12px;
+}
+QPushButton:hover {
+    background-color: #525b56;
+    color: #a4978e;
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>12</number>
+   </property>
    <item>
     <widget class="QFrame" name="frame_2">
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>60</height>
+       <height>70</height>
       </size>
      </property>
      <property name="maximumSize">
@@ -50,32 +66,80 @@ QScrollArea {
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Sort</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>20</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Filter</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="filter_btn">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string> Filter</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../icons/filter.png</normaloff>../icons/filter.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="sort_btn">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string> Sort</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../icons/sort.png</normaloff>../icons/sort.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>344</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="docx_btn">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>.docx</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>
@@ -103,8 +167,8 @@ QScrollArea {
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>722</width>
-           <height>326</height>
+           <width>768</width>
+           <height>352</height>
           </rect>
          </property>
         </widget>

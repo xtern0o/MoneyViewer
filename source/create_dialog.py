@@ -51,7 +51,7 @@ class CreateDialog(Ui_Dialog, QDialog):
                             self.close()
                         else:
                             print("категории не существует")
-                            #TODO: доработать логику корректности
+                            # TODO: доработать логику корректности
                     else:
                         print("что то не так доработать")
 

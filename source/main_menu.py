@@ -1,8 +1,9 @@
 from PyQt5.QtWidgets import QMainWindow
+from source.ui_generated_py_files.ui_mainmenu import Ui_MainMenu
 
 from source.db_class import Db
-from source.ui_generated_py_files.ui_mainmenu import Ui_MainMenu
 from source.create_dialog import CreateDialog
+from source.payment_data import PaymentData
 
 
 class MainMenu(Ui_MainMenu, QMainWindow):
@@ -17,6 +18,7 @@ class MainMenu(Ui_MainMenu, QMainWindow):
 
         self.exit_btn.clicked.connect(self.logout)
         self.add_btn.clicked.connect(self.create_dialog_foo)
+        self.payments_btn.clicked.connect(self.open_paymentdata)
 
     def logout(self):
         self.db.set_remembered(self.user_id, False)
@@ -29,3 +31,6 @@ class MainMenu(Ui_MainMenu, QMainWindow):
         self.create_dialog = CreateDialog(self.user_id, self)
         self.create_dialog.show()
 
+    def open_paymentdata(self):
+        self.paymentdata = PaymentData(self)
+        self.paymentdata.show()

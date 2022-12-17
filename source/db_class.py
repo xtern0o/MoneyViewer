@@ -91,5 +91,12 @@ class Db:
             """, (category_name, essential))
             self.con.commit()
 
+    def get_all_payments_from_this_user(self, userid):
+        """returns all user's payments"""
+
+        return self.cur.execute("""
+        SELECT * FROM payments
+        WHERE user_id = ?
+        """, (userid, ))
 
 

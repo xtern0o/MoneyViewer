@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RbForCatList</class>
+ <widget class="QWidget" name="RbForCatList">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>191</width>
+    <height>47</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QRadioButton {
+	font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    color: #a4978e;
+}
+QRadioButton:checked {
+	color: #be9063;
+	font: 75 20pt &quot;Verdana&quot;;
+	text-decoration: underline;
+}
+QRadioButton::indicator {
+	background-color: #132226;
+	border-radius: 5px;
+}
+QRadioButton::indicator:checked {
+	background-color: #be9063;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QRadioButton" name="radioButton">
+     <property name="text">
+      <string>RadioButton</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
