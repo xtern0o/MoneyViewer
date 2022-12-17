@@ -3,7 +3,8 @@ import sqlite3
 
 class Db:
     """Класс для работы с базой данных database/buy_database.sqlite3"""
-    """Hello, Viktor Latkin and Alexader Duryagin! это все мое если что"""
+    """Hello, Viktor Latkin, Alexander Duryagin and other humen!"""
+    """это все мое если что я честно не скопировал с перого попавшегося репозитория честно"""
 
     def __init__(self):
         self.con = sqlite3.connect("source/database/buy_database.sqlite3")
@@ -57,5 +58,26 @@ class Db:
         """Returns username by getting userid lol!"""
 
         return self.cur.execute("""SELECT username FROM users WHERE id = ?""", (userid, )).fetchone()[0]
+
+    def add_new_payment(self, userid, pname, category, cost, date):
+        """Add new row to the purchases database"""
+
+        category_id = self.cur.execute("""
+        SELECT id FROM categories
+        WHERE category_name = ?
+        """, (category, )).fetchone()[0]
+
+        self.cur.execute("""
+        INSERT INTO payments(user_id, name, category_id, cost, date) VALUES
+        (?, ?, ?, ?, ?)
+        """, (userid, pname, category_id, cost, date))
+        self.con.commit()
+
+    def get_exist_categories(self):
+        """returns tuple of categories which are exist at this moment"""
+
+        return self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()
+
+
 
 
