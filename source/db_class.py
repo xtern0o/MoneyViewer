@@ -59,24 +59,27 @@ class Db:
 
         return self.cur.execute("""SELECT username FROM users WHERE id = ?""", (userid, )).fetchone()[0]
 
-    def add_new_payment(self, userid, pname, category, cost, date):
+    def add_new_payment(self, userid, pname, category, cost, date) -> bool:
         """Add new row to the purchases database"""
 
-        category_id = self.cur.execute("""
-        SELECT id FROM categories
-        WHERE category_name = ?
-        """, (category, )).fetchone()[0]
-
+        try:
+            category_id = self.cur.execute("""
+            SELECT id FROM categories
+            WHERE category_name = ?
+            """, (category, )).fetchone()[0]
+        except TypeError:
+            return False # категории не существует
         self.cur.execute("""
         INSERT INTO payments(user_id, name, category_id, cost, date) 
         VALUES (?, ?, ?, ?, ?)
         """, (userid, pname, category_id, cost, date))
         self.con.commit()
+        return True
 
-    def get_exist_categories(self):
-        """Returns tuple of categories which are exist at this moment"""
+    def get_exist_categories(self) -> list:
+        """Returns list of categories which are exist at this moment"""
 
-        return self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()
+        return [row[0] for row in self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall() ]
 
     def add_new_category(self, category_name, essential):
         """Adds new category to the categoy table"""

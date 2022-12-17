@@ -21,6 +21,8 @@ class CreateDialog(Ui_Dialog, QDialog):
 
         self.stackedWidget.setCurrentIndex(0)
 
+        self.category_cb.addItems(self.db.get_exist_categories())
+
         self.add_payment_btn.clicked.connect(self.goto_new_payment)
         self.add_category_btn.clicked.connect(self.goto_new_category)
 
@@ -44,8 +46,14 @@ class CreateDialog(Ui_Dialog, QDialog):
                     category = self.category_cb.currentText()
                     cost = self.cost_le.text()
                     current_dt = str(dt.datetime.now())
-                    if self.is_valid_new_payment_data(name, category, cost):
-                        self.db.add_new_payment(self.user_id, name, category, cost, current_dt)
+                    if self.is_valid_new_payment_data(name, category, cost) and self.is_valid_category(category):
+                        if self.db.add_new_payment(self.user_id, name, category, cost, current_dt):
+                            self.close()
+                        else:
+                            print("категории не существует")
+                            #TODO: доработать логику корректности
+                    else:
+                        print("что то не так доработать")
 
         elif self.stackedWidget.currentIndex() == 2:
             if int(event.modifiers()) == Qt.ControlModifier:
@@ -54,6 +62,7 @@ class CreateDialog(Ui_Dialog, QDialog):
                     essential = self.essential_btn.isChecked()
                     if self.is_valid_category(name):
                         self.db.add_new_category(name, essential)
+                        self.close()
             if int(event.modifiers()) == Qt.ShiftModifier:
                 if event.key() == Qt.Key_E:
                     self.essential_btn.setChecked(not self.essential_btn.isChecked())
