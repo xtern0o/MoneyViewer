@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
-    <height>527</height>
+    <width>712</width>
+    <height>548</height>
    </rect>
   </property>
   <property name="font">
@@ -85,28 +85,6 @@ QWidget#scrollAreaWidgetContents {
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Filter</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
@@ -116,16 +94,6 @@ QWidget#scrollAreaWidgetContents {
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="1">
-       <widget class="QDateTimeEdit" name="dt_2">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-       </widget>
-      </item>
       <item row="3" column="0" colspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <property name="spacing">
@@ -197,8 +165,8 @@ QWidget#scrollAreaWidgetContents {
         </item>
        </layout>
       </item>
-      <item row="2" column="0" colspan="2">
-       <widget class="QLabel" name="label_4">
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_2">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -206,20 +174,10 @@ QWidget#scrollAreaWidgetContents {
          </size>
         </property>
         <property name="text">
-         <string>Показать категории...</string>
+         <string>до...</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QDateTimeEdit" name="dt_1">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
         </property>
        </widget>
       </item>
@@ -239,8 +197,18 @@ QWidget#scrollAreaWidgetContents {
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_2">
+      <item row="1" column="0">
+       <widget class="QDateTimeEdit" name="dt_1">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QLabel" name="label_4">
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -248,10 +216,20 @@ QWidget#scrollAreaWidgetContents {
          </size>
         </property>
         <property name="text">
-         <string>до...</string>
+         <string>Показать категории...</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDateTimeEdit" name="dt_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -265,8 +243,8 @@ QWidget#scrollAreaWidgetContents {
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>618</width>
-           <height>245</height>
+           <width>644</width>
+           <height>266</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -277,13 +255,35 @@ QWidget#scrollAreaWidgetContents {
         </widget>
        </widget>
       </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>apply: [Ctrl + Q]</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_5">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>30</height>
+      </size>
+     </property>
      <property name="text">
-      <string>apply: [Ctrl + Q]</string>
+      <string>Filter</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QDialog, QCheckBox
-from PyQt5.QtCore import Qt, QDateTime
+from PyQt5.QtCore import Qt, QDateTime, QPoint
 from PyQt5.QtGui import QKeyEvent
 
 from source.ui_generated_py_files.ui_filter_window import Ui_FilterDialog
