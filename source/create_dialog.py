@@ -29,7 +29,7 @@ class CreateDialog(Ui_Dialog, QDialog):
         self.add_category_btn.clicked.connect(self.goto_new_category)
 
         self.color_btn.clicked.connect(self.get_color)
-        self.color = None
+        self.color = "#be9063"
 
     def goto_new_payment(self):
         self.stackedWidget.setCurrentIndex(1)
@@ -65,6 +65,8 @@ class CreateDialog(Ui_Dialog, QDialog):
 
         elif self.stackedWidget.currentIndex() == 2:
             if int(event.modifiers()) == Qt.ControlModifier:
+                if event.key() == Qt.Key_C:
+                    self.get_color()
                 if event.key() == Qt.Key_Q:
                     name = self.category_le.text()
                     essential = self.essential_btn.isChecked()
@@ -94,6 +96,11 @@ class CreateDialog(Ui_Dialog, QDialog):
         if color.isValid():
             self.color_btn.setStyleSheet("""
             border: 2px solid {};
+            """.format(color.name()))
+            self.frame_3.setStyleSheet("""
+            QFrame#frame_3 {{
+                border: 2px solid {}
+            }}
             """.format(color.name()))
             self.color = color.name()
             print(self.color)
