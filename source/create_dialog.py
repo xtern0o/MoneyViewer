@@ -2,6 +2,7 @@ import datetime as dt
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QKeyEvent
+from PyQt5.QtWidgets import QColorDialog
 
 from source.ui_generated_py_files.ui_create_dialog import Ui_Dialog
 from source.db_class import Db
@@ -22,10 +23,13 @@ class CreateDialog(Ui_Dialog, QDialog):
 
         self.stackedWidget.setCurrentIndex(0)
 
-        self.category_cb.addItems(self.db.get_exist_categories())
+        self.category_cb.addItems(list(map(str, self.db.get_exist_categories())))
 
         self.add_payment_btn.clicked.connect(self.goto_new_payment)
         self.add_category_btn.clicked.connect(self.goto_new_category)
+
+        self.color_btn.clicked.connect(self.get_color)
+        self.color = None
 
     def goto_new_payment(self):
         self.stackedWidget.setCurrentIndex(1)
@@ -46,8 +50,8 @@ class CreateDialog(Ui_Dialog, QDialog):
                     name = self.payment_le.text()
                     category = self.category_cb.currentText()
                     cost = self.cost_le.text()
-                    current_dt = str(dt.datetime.now())
-                    if self.is_valid_new_payment_data(category, cost) and self.is_valid_category(category):
+                    current_dt = str(dt.date.today())
+                    if self.is_valid_new_payment_data(cost) and self.is_valid_category(category):
                         if self.db.add_new_payment(self.user_id, name, category, cost, current_dt):
                             self.close()
                         else:
@@ -64,8 +68,9 @@ class CreateDialog(Ui_Dialog, QDialog):
                 if event.key() == Qt.Key_Q:
                     name = self.category_le.text()
                     essential = self.essential_btn.isChecked()
+                    color = self.color
                     if self.is_valid_category(name):
-                        self.db.add_new_category(name, essential)
+                        self.db.add_new_category(name, essential, color)
                         self.close()
             if int(event.modifiers()) == Qt.ShiftModifier:
                 if event.key() == Qt.Key_E:
@@ -83,4 +88,13 @@ class CreateDialog(Ui_Dialog, QDialog):
 
     def is_valid_category(self, cat_name):
         return cat_name != "" and cat_name != "категория"
+
+    def get_color(self):
+        color = QColorDialog.getColor()
+        if color.isValid():
+            self.color_btn.setStyleSheet("""
+            border: 2px solid {};
+            """.format(color.name()))
+            self.color = color.name()
+            print(self.color)
 

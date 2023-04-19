@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QDialog, QCheckBox
-from PyQt5.QtCore import Qt, QDateTime, QPoint
+from PyQt5.QtCore import Qt, QDateTime
 from PyQt5.QtGui import QKeyEvent
 
 from source.ui_generated_py_files.ui_filter_window import Ui_FilterDialog
@@ -34,7 +34,7 @@ class FilterDialog(Ui_FilterDialog, QDialog):
         # self.scrollAreaWidgetContents.setVisible(False)
         for category in self.db.get_exist_categories():
             btn = QCheckBox(self)
-            btn.setText(category)
+            btn.setText(str(category))
             btn.setStyleSheet(CHECK_BOX_STYLESHEET)
             btn.setChecked(True)
             self.categories_from_custon_choice.append(btn)
@@ -47,7 +47,7 @@ class FilterDialog(Ui_FilterDialog, QDialog):
                 date2 = self.dt_2.dateTime()
                 selected_cats = [cat.text() for cat in list(filter(lambda btn: btn.isChecked(),
                                                          self.categories_from_custon_choice))]
-                self.payment_data_window.refresh(filter_dates=(date1, date2), filter_cats=selected_cats)
+                self.payment_data_window.refresh(dt_borders=(date1, date2), categories=selected_cats)
                 self.close()
         if event.key() == Qt.Key_Escape:
             self.close()
