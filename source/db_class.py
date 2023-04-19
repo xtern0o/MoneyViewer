@@ -139,4 +139,4 @@ class Db:
         return self.cur.execute("""
         SELECT * FROM categories
         WHERE id = ?
-        """, (id,)).fetchall()
+        """, (id,)).fetchone()

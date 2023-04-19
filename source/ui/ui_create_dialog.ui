@@ -449,7 +449,7 @@ QComboBox QListView::item:hover {
           </size>
          </property>
          <property name="text">
-          <string>[Ctrl + Q]</string>
+          <string>Подтвердить [Ctrl + Q]</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -527,7 +527,7 @@ QComboBox QListView::item:hover {
           <item row="3" column="2">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>Цвет</string>
+             <string>Цвет [Ctrl + C]</string>
             </property>
            </widget>
           </item>

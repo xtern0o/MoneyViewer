@@ -1,5 +1,6 @@
 import datetime
-from PyQt5.QtWidgets import QWidget
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QWidget, QSpacerItem
 from PyQt5.QtCore import QDateTime
 
 from source.ui_generated_py_files.ui_paymentdata import Ui_PaymentData
@@ -31,10 +32,25 @@ class PaymentData(Ui_PaymentData, QWidget):
         self.filter_dialog = FilterDialog(self)
         self.filter_dialog.show()
 
-    def refresh(self, **kwargs):
-        payments = self.db.get_all_payments_from_this_user(self.main_menu.user_id)
-        if kwargs["dt_borders"] and kwargs["categories"]:
-            pass
+    def clear_widget_layout(self):
+        if self.widgets_layout.count():
+            for i in reversed(range(self.widgets_layout.count())):
+                if self.widgets_layout.itemAt(i).widget():
+                    self.widgets_layout.itemAt(i).widget().deleteLater()
+
+    def fill_widget_layout(self):
+        payments = self.db.get_all_payments_from_this_user(self.user_id)
         for payment in payments:
-            pw = PaymentDataWidget(payment[3], payment[4], payment[5])
-        print(payments)
+            w = PaymentDataWidget(payment[2], payment[5], payment[4], self.db.get_category_by_id(payment[3])[-1])
+            self.widgets_layout.addWidget(w)
+            print(w.name_lbl)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.widgets_layout.addItem(spacerItem1)
+
+    def refresh(self, **kwargs):
+        if kwargs["dt_borders"] and kwargs["categories"]:
+            return
+        self.clear_widget_layout()
+        self.fill_widget_layout()
+
+

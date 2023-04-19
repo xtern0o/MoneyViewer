@@ -14,7 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_PaymentData(object):
     def setupUi(self, PaymentData):
         PaymentData.setObjectName("PaymentData")
-        PaymentData.resize(816, 482)
+        PaymentData.resize(1000, 658)
+        PaymentData.setMinimumSize(QtCore.QSize(1000, 300))
         PaymentData.setStyleSheet("QWidget#PaymentData {\n"
 "    background-color: #040c0e;\n"
 "}\n"
@@ -56,7 +57,7 @@ class Ui_PaymentData(object):
         self.filter_btn = QtWidgets.QPushButton(self.frame_2)
         self.filter_btn.setMinimumSize(QtCore.QSize(150, 40))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/filter.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../icons/filter.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.filter_btn.setIcon(icon)
         self.filter_btn.setIconSize(QtCore.QSize(30, 30))
         self.filter_btn.setObjectName("filter_btn")
@@ -64,12 +65,12 @@ class Ui_PaymentData(object):
         self.sort_btn = QtWidgets.QPushButton(self.frame_2)
         self.sort_btn.setMinimumSize(QtCore.QSize(150, 40))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("icons/sort.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("../icons/sort.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.sort_btn.setIcon(icon1)
         self.sort_btn.setIconSize(QtCore.QSize(30, 30))
         self.sort_btn.setObjectName("sort_btn")
         self.horizontalLayout.addWidget(self.sort_btn)
-        spacerItem = QtWidgets.QSpacerItem(344, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(374, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.docx_btn = QtWidgets.QPushButton(self.frame_2)
         self.docx_btn.setMinimumSize(QtCore.QSize(100, 40))
@@ -88,8 +89,13 @@ class Ui_PaymentData(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 768, 352))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 952, 528))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.widgets_layout = QtWidgets.QVBoxLayout()
+        self.widgets_layout.setObjectName("widgets_layout")
+        self.gridLayout_2.addLayout(self.widgets_layout, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
         self.verticalLayout.addWidget(self.frame)

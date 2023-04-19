@@ -6,14 +6,17 @@ from source.ui_generated_py_files.ui_payment_widget import Ui_PaymentDataWidget
 
 
 class PaymentDataWidget(Ui_PaymentDataWidget, QWidget):
-    def __init__(self, name, date, cost, parent=None):
+    def __init__(self, name, date, cost, color, parent=None):
         super().__init__()
         self.setupUi(self)
         self.parent = parent
 
-        self.name_lbl = name
-        self.date_lbl = date
-        self.cost_lbl = str(cost)
+        self.name_lbl.setText(name)
+        self.cost_lbl.setText(str(cost))
+        self.date_lbl.setText(date)
+        self.frame.setStyleSheet("""
+        QFrame#frame{{border: 2px solid {}}}
+        """.format(color))
 
         self.settings_btn.clicked.connect(self.open_settings)
 
