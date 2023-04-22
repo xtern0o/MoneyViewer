@@ -1,5 +1,6 @@
 import sqlite3
 import os
+from werkzeug.security import check_password_hash, generate_password_hash
 
 
 class Db:
@@ -16,7 +17,8 @@ class Db:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username VARCHAR,
             password VARCHAR,
-            remember BOOLEAN
+            remember BOOLEAN,
+            salary INTEGER
             )
             """)
             self.cur.execute("""
@@ -44,7 +46,7 @@ class Db:
         self.cur.execute("""
         INSERT INTO users(username, password, remember)
         VALUES (?, ?, ?)
-        """, (username, password, remember))
+        """, (username, generate_password_hash(password), remember))
 
     def get_userid_if_correct_pwd(self, login: str, password: str) -> int:
         """Returns user_id if pwd is correct else return 0"""
@@ -54,7 +56,7 @@ class Db:
         WHERE username = ?
         """, (login,)).fetchone()
         if data:
-            if password == str(data[2]):
+            if check_password_hash(str(data[2]), password):
                 return data[0]  # user id
             else:
                 return 0

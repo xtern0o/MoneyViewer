@@ -22,9 +22,6 @@ class MainMenu(Ui_MainMenu, QMainWindow):
 
     def logout(self):
         self.db.set_remembered(self.user_id, False)
-        self.reg_window.login_le.setText("")
-        self.reg_window.password_le.setText("")
-        self.reg_window.remember_btn.setChecked(False)
         self.close()
 
     def create_dialog_foo(self):

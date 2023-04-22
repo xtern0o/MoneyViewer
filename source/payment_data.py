@@ -44,8 +44,8 @@ class PaymentData(Ui_PaymentData, QWidget):
             w = PaymentDataWidget(payment[2], payment[5], payment[4], self.db.get_category_by_id(payment[3])[-1])
             self.widgets_layout.addWidget(w)
             print(w.name_lbl)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.widgets_layout.addItem(spacerItem1)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.widgets_layout.addItem(spacerItem)
 
     def refresh(self, **kwargs):
         if kwargs["dt_borders"] and kwargs["categories"]:

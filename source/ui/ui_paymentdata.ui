@@ -6,15 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>658</height>
+    <width>1013</width>
+    <height>472</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>1000</width>
-    <height>300</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -173,8 +167,8 @@ QPushButton:hover {
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>952</width>
-           <height>528</height>
+           <width>965</width>
+           <height>342</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">

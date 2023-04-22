@@ -18,6 +18,8 @@ class RegWindow(Ui_RegWindow, QMainWindow):
         super().__init__()
         self.db = Db()
 
+        print("WTF")
+
         self.setupUi(self)
         self.statusbar.setStyleSheet("color: pink")
 
@@ -29,10 +31,11 @@ class RegWindow(Ui_RegWindow, QMainWindow):
     def check_remember(self):
         data = self.db.find_remembered_user()
         if data:
-            self.login_le.setText(str(data[1]))
-            self.password_le.setText(str(data[2]))
-            self.remember_btn.setChecked(True)
+            self.main_menu = MainMenu(data[0], self)
+            self.main_menu.show()
+            self.close()
         self.last_user_id = data[0] if data else None
+
 
     def login(self):
         user_id = self.db.get_userid_if_correct_pwd(self.login_le.text(), self.password_le.text())
@@ -43,6 +46,7 @@ class RegWindow(Ui_RegWindow, QMainWindow):
 
             self.main_menu = MainMenu(user_id, self)
             self.main_menu.show()
+            self.close()
         else:
             self.statusbar.showMessage("[!] Неправильный логин и/или пароль")
 
