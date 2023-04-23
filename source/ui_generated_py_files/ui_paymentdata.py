@@ -14,8 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_PaymentData(object):
     def setupUi(self, PaymentData):
         PaymentData.setObjectName("PaymentData")
-        PaymentData.resize(1000, 658)
-        PaymentData.setMinimumSize(QtCore.QSize(1000, 300))
+        PaymentData.resize(1013, 472)
         PaymentData.setStyleSheet("QWidget#PaymentData {\n"
 "    background-color: #040c0e;\n"
 "}\n"
@@ -74,6 +73,7 @@ class Ui_PaymentData(object):
         self.horizontalLayout.addItem(spacerItem)
         self.docx_btn = QtWidgets.QPushButton(self.frame_2)
         self.docx_btn.setMinimumSize(QtCore.QSize(100, 40))
+        self.docx_btn.setText("")
         self.docx_btn.setObjectName("docx_btn")
         self.horizontalLayout.addWidget(self.docx_btn)
         self.verticalLayout.addWidget(self.frame_2)
@@ -89,7 +89,7 @@ class Ui_PaymentData(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 952, 528))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 965, 342))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -108,4 +108,3 @@ class Ui_PaymentData(object):
         PaymentData.setWindowTitle(_translate("PaymentData", "Form"))
         self.filter_btn.setText(_translate("PaymentData", " Filter"))
         self.sort_btn.setText(_translate("PaymentData", " Sort"))
-        self.docx_btn.setText(_translate("PaymentData", ".docx"))

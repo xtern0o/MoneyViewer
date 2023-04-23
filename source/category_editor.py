@@ -30,6 +30,8 @@ class CategoryEditor(Ui_Form, QWidget):
             for i in reversed(range(self.verticalLayout_2.count())):
                 if self.verticalLayout_2.itemAt(i).widget():
                     self.verticalLayout_2.itemAt(i).widget().deleteLater()
+                elif self.verticalLayout_2.itemAt(i).spacerItem():
+                    self.verticalLayout_2.removeItem(self.verticalLayout_2.itemAt(i).spacerItem())
         self.load_categories()
 
     def save(self):

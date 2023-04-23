@@ -51,7 +51,7 @@ class CreateDialog(Ui_Dialog, QDialog):
                     category = self.category_cb.currentText()
                     cost = self.cost_le.text()
                     current_dt = str(dt.date.today())
-                    if self.is_valid_new_payment_data(cost) and self.is_valid_category(category):
+                    if self.is_valid_new_payment_data(cost) and self.is_valid_category(category) and name != "название":
                         if self.db.add_new_payment(self.user_id, name, category, cost, current_dt):
                             self.close()
                         else:

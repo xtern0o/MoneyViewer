@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QDialog, QCheckBox
-from PyQt5.QtCore import Qt, QDateTime
+from PyQt5.QtCore import Qt, QDate
 from PyQt5.QtGui import QKeyEvent
 
 from source.ui_generated_py_files.ui_filter_window import Ui_FilterDialog
@@ -30,7 +30,7 @@ QScrollBar::handle:vertical
         """)
         self.scrollArea.verticalScrollBar().setVisible(False)
 
-        self.dt_2.setDateTime(QDateTime.currentDateTime())
+        self.dt_2.setDate(QDate.currentDate())
 
         # self.setWindowFlags(Qt.FramelessWindowHint)
         # self.setAttribute(Qt.WA_TranslucentBackground, True)
@@ -60,8 +60,8 @@ QScrollBar::handle:vertical
     def keyPressEvent(self, event: QKeyEvent):
         if int(event.modifiers()) == Qt.ControlModifier:
             if event.key() == Qt.Key_Q:
-                date1 = self.dt_1.dateTime()
-                date2 = self.dt_2.dateTime()
+                date1 = self.dt_1.date()
+                date2 = self.dt_2.date()
                 selected_cats = [cat.text() for cat in list(filter(lambda btn: btn.isChecked(),
                                                                    self.categories_from_custom_choice))]
                 self.payment_data_window.refresh(dt_borders=(date1, date2), categories=selected_cats)
