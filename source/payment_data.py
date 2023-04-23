@@ -30,6 +30,8 @@ class PaymentData(Ui_PaymentData, QWidget):
 
         self.filter_btn.clicked.connect(self.set_filter)
 
+        self.sum_lbl.setText("Сумма: ")
+
         self.refresh(**self.filter_settings)
 
     def set_filter(self):
@@ -72,3 +74,6 @@ class PaymentData(Ui_PaymentData, QWidget):
             return None
 
         self.fill_widget_layout()
+
+    def count_sum(self):
+        self.sum_lbl.setText(str(sum(list(map(lambda n: n[4], self.db.get_all_payments_from_this_user(self.user_id))))))

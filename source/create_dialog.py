@@ -64,9 +64,10 @@ class CreateDialog(Ui_Dialog, QDialog):
                 self.close()
 
         elif self.stackedWidget.currentIndex() == 2:
-            if int(event.modifiers()) == Qt.ControlModifier:
-                if event.key() == Qt.Key_C:
+            if int(event.modifiers()) == Qt.ShiftModifier:
+                if event.key() == Qt.Key_W:
                     self.get_color()
+            if int(event.modifiers()) == Qt.ControlModifier:
                 if event.key() == Qt.Key_Q:
                     name = self.category_le.text()
                     essential = self.essential_btn.isChecked()

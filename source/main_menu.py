@@ -5,6 +5,7 @@ from source.db_class import Db
 from source.create_dialog import CreateDialog
 from source.payment_data import PaymentData
 from source.category_editor import CategoryEditor
+from source.graphics_window import GraphicsWindow
 
 
 class MainMenu(Ui_MainMenu, QMainWindow):
@@ -21,6 +22,7 @@ class MainMenu(Ui_MainMenu, QMainWindow):
         self.add_btn.clicked.connect(self.create_dialog_foo)
         self.payments_btn.clicked.connect(self.open_paymentdata)
         self.settings_btn.clicked.connect(self.open_category_editor)
+        self.graphs_btn.clicked.connect(self.open_graphs)
 
     def logout(self):
         self.db.set_remembered(self.user_id, False)
@@ -37,4 +39,8 @@ class MainMenu(Ui_MainMenu, QMainWindow):
     def open_category_editor(self):
         self.cat_editor = CategoryEditor(self)
         self.cat_editor.show()
+
+    def open_graphs(self):
+        self.gr = GraphicsWindow(self)
+        self.gr.show()
 

@@ -52,7 +52,6 @@ class Ui_PaymentDataWidget(object):
 "    color: #be9063;\n"
 "}\n"
 "QLabel:hover {\n"
-"    font-size: 40px;\n"
 "    letter-spacing: 2px;\n"
 "    word-spacing: 6px;\n"
 "    color: #F3E0D2;\n"
@@ -60,6 +59,7 @@ class Ui_PaymentDataWidget(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(PaymentDataWidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(PaymentDataWidget)
+        self.frame.setMaximumSize(QtCore.QSize(16777215, 70))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -68,7 +68,7 @@ class Ui_PaymentDataWidget(object):
         self.name_lbl = QtWidgets.QLabel(self.frame)
         self.name_lbl.setMinimumSize(QtCore.QSize(300, 0))
         self.name_lbl.setMaximumSize(QtCore.QSize(16777215, 50))
-        self.name_lbl.setStyleSheet("font-size: 40px;")
+        self.name_lbl.setStyleSheet("font-size: 30px;")
         self.name_lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.name_lbl.setObjectName("name_lbl")
         self.gridLayout.addWidget(self.name_lbl, 0, 0, 2, 1)
@@ -77,7 +77,8 @@ class Ui_PaymentDataWidget(object):
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem1, 0, 1, 2, 1)
         self.settings_btn = QtWidgets.QPushButton(self.frame)
-        self.settings_btn.setMinimumSize(QtCore.QSize(50, 50))
+        self.settings_btn.setMinimumSize(QtCore.QSize(40, 40))
+        self.settings_btn.setMaximumSize(QtCore.QSize(16777215, 40))
         self.settings_btn.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../icons/setting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -95,19 +96,13 @@ class Ui_PaymentDataWidget(object):
         self.cost_lbl.setAlignment(QtCore.Qt.AlignCenter)
         self.cost_lbl.setObjectName("cost_lbl")
         self.gridLayout.addWidget(self.cost_lbl, 1, 4, 1, 1)
-        self.label_date_ico = QtWidgets.QLabel(self.frame)
-        self.label_date_ico.setMinimumSize(QtCore.QSize(23, 0))
-        self.label_date_ico.setMaximumSize(QtCore.QSize(23, 16777215))
-        self.label_date_ico.setPixmap(QtGui.QPixmap("../icons/calendar.png"))
-        self.label_date_ico.setScaledContents(True)
-        self.label_date_ico.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_date_ico.setWordWrap(False)
-        self.label_date_ico.setObjectName("label_date_ico")
-        self.gridLayout.addWidget(self.label_date_ico, 0, 2, 1, 1)
         self.label_money_ico = QtWidgets.QLabel(self.frame)
         self.label_money_ico.setAlignment(QtCore.Qt.AlignCenter)
         self.label_money_ico.setObjectName("label_money_ico")
         self.gridLayout.addWidget(self.label_money_ico, 1, 2, 1, 1)
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 0, 2, 1, 1)
         self.verticalLayout.addWidget(self.frame)
 
         self.retranslateUi(PaymentDataWidget)
@@ -119,5 +114,5 @@ class Ui_PaymentDataWidget(object):
         self.name_lbl.setText(_translate("PaymentDataWidget", "gdfgfdf"))
         self.date_lbl.setText(_translate("PaymentDataWidget", "22.08.1921"))
         self.cost_lbl.setText(_translate("PaymentDataWidget", "23344"))
-        self.label_date_ico.setText(_translate("PaymentDataWidget", "*"))
         self.label_money_ico.setText(_translate("PaymentDataWidget", "$"))
+        self.label.setText(_translate("PaymentDataWidget", "*"))

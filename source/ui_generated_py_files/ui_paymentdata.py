@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_PaymentData(object):
     def setupUi(self, PaymentData):
         PaymentData.setObjectName("PaymentData")
-        PaymentData.resize(1013, 472)
+        PaymentData.resize(844, 472)
         PaymentData.setStyleSheet("QWidget#PaymentData {\n"
 "    background-color: #040c0e;\n"
 "}\n"
@@ -41,6 +41,13 @@ class Ui_PaymentData(object):
 "QPushButton:hover {\n"
 "    background-color: #525b56;\n"
 "    color: #a4978e;\n"
+"}\n"
+"QLabel {\n"
+"    font-family: Verdana, Geneva, sans-serif;\n"
+"    font-size: 20px;\n"
+"    letter-spacing: 2px;\n"
+"    word-spacing: 6px;\n"
+"    color: #be9063;\n"
 "}")
         self.verticalLayout = QtWidgets.QVBoxLayout(PaymentData)
         self.verticalLayout.setSpacing(12)
@@ -71,6 +78,11 @@ class Ui_PaymentData(object):
         self.horizontalLayout.addWidget(self.sort_btn)
         spacerItem = QtWidgets.QSpacerItem(374, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
+        self.sum_lbl = QtWidgets.QLabel(self.frame_2)
+        self.sum_lbl.setObjectName("sum_lbl")
+        self.horizontalLayout.addWidget(self.sum_lbl)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem1)
         self.docx_btn = QtWidgets.QPushButton(self.frame_2)
         self.docx_btn.setMinimumSize(QtCore.QSize(100, 40))
         self.docx_btn.setText("")
@@ -89,7 +101,7 @@ class Ui_PaymentData(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 965, 342))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 796, 342))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -108,3 +120,4 @@ class Ui_PaymentData(object):
         PaymentData.setWindowTitle(_translate("PaymentData", "Form"))
         self.filter_btn.setText(_translate("PaymentData", " Filter"))
         self.sort_btn.setText(_translate("PaymentData", " Sort"))
+        self.sum_lbl.setText(_translate("PaymentData", "Сумма: 32731"))

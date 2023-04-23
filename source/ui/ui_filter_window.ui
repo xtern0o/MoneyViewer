@@ -269,7 +269,7 @@ QWidget#scrollAreaWidgetContents {
       </size>
      </property>
      <property name="text">
-      <string>Filter</string>
+      <string>Фильтр</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
