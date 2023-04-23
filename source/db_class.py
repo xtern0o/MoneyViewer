@@ -36,7 +36,8 @@ class Db:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             category_name STRING,
             essential BOOLEAN,
-            color VARCHAR
+            color VARCHAR,
+            user_id INTEGER
             )
             """)
             self.con.commit()
@@ -110,21 +111,28 @@ class Db:
     def get_exist_categories(self) -> list:
         """Returns list of categories which are exist at this moment"""
 
-        return [row[0] for row in self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()]
+        return [row[0] for row in self.cur.execute("""SELECT * FROM categories""").fetchall()]
+
+    def get_categories_from_this_user(self, user_id) -> list:
+        """Returns list of categories that were created by this user"""
+
+        return self.cur.execute("""
+        SELECT id, category_name, essential, color FROM categories WHERE user_id = ?
+        """, (user_id, )).fetchall()
 
     def get_categories_info(self) -> list:
         """Returns list of categories with essential"""
 
         return self.cur.execute("""SELECT category_name, essential FROM categories""").fetchall()
 
-    def add_new_category(self, category_name, essential, color):
+    def add_new_category(self, category_name, essential, color, user_id):
         """Adds new category to the category table"""
 
         if category_name not in [row[0] for row in self.cur.execute("SELECT category_name FROM categories").fetchall()]:
             self.cur.execute("""
-            INSERT INTO categories(category_name, essential, color)
-            VALUES (?, ?, ?)
-            """, (category_name, essential, color))
+            INSERT INTO categories(category_name, essential, color, user_id)
+            VALUES (?, ?, ?, ?)
+            """, (category_name, essential, color, user_id))
             self.con.commit()
 
     def get_all_payments_from_this_user(self, userid):
@@ -142,3 +150,21 @@ class Db:
         SELECT * FROM categories
         WHERE id = ?
         """, (id,)).fetchone()
+
+    def update_category(self, id: int, name: str, color: str, essential):
+        """updates category info by id"""
+
+        self.cur.execute("""
+        UPDATE categories
+        SET category_name = ?, color = ?, essential = ?
+        WHERE id = ?
+        """, (name, color, bool(essential), id))
+        self.con.commit()
+
+    def delete_category(self, id):
+        """deletes category by id"""
+
+        self.cur.execute("""
+        DELETE FROM categories
+        WHERE id = ?
+        """, (id, ))

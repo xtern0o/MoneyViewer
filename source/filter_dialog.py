@@ -49,9 +49,9 @@ QScrollBar::handle:vertical
         self.other_groups_rb.clicked.connect(self.change_btn_choice)
 
     def init_categories(self):
-        for category in self.db.get_exist_categories():
+        for category in self.db.get_categories_from_this_user(self.user_id):
             btn = QCheckBox(self)
-            btn.setText(str(category))
+            btn.setText(str(category[1]))
             btn.setStyleSheet(CHECK_BOX_STYLESHEET)
             btn.setChecked(True)
             self.categories_from_custom_choice.append(btn)
@@ -77,13 +77,13 @@ QScrollBar::handle:vertical
                 btn.setChecked(True)
         elif name == "Обязательные":
             self.off_every_btn()
-            essential = [cat[0] for cat in list(filter(lambda n: n[1], self.db.get_categories_info()))]
+            essential = [cat[1] for cat in list(filter(lambda n: n[2], self.db.get_categories_from_this_user(self.user_id)))]
             for btn in self.categories_from_custom_choice:
                 if btn.text() in essential:
                     btn.setChecked(True)
         elif name == "Необязательные":
             self.off_every_btn()
-            notessential = [cat[0] for cat in list(filter(lambda n: not n[1], self.db.get_categories_info()))]
+            notessential = [cat[1] for cat in list(filter(lambda n: not n[2], self.db.get_categories_from_this_user(self.user_id)))]
             for btn in self.categories_from_custom_choice:
                 if btn.text() in notessential:
                     btn.setChecked(True)

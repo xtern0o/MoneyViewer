@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>864</width>
+    <height>97</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#Form {
+	background-color: #040c0e;
+}
+
+QLabel {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    color: #a4978e;
+}
+QLabel:hover {
+    color: #F3E0D2;
+}
+QPushButton {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    background-color: #132226;
+    color: #a4978e;
+    border-radius: 12px;
+}
+QPushButton:hover {
+    background-color: #525b56;
+    color: #a4978e;
+}
+QLineEdit {
+    background-color: #525b56;
+    color: #a4978e;
+    border-radius: 12px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    opacity: 0.6;
+	padding: 5px
+}
+QFrame#frame, QFrame#frame_2 {
+    background-color: #040c0e;
+    border: 2px solid #be9063;
+    border-radius: 20px;
+}
+QLabel#login_label, QLabel#password_label {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 30px;
+	letter-spacing: 2px;
+	word-spacing: 6px;
+	color: #525b56;
+}
+QPushButton#remember_btn:checked {
+	background-color: #be9063;
+	color: #040c0e;
+}
+QPushButton#add_btn:hover {
+	background-color: rgba(59, 200, 34, 200);
+}
+QWidget#scrollAreaWidgetContents {
+	background-color: #040c0e;
+}
+QScrollArea {
+	border-color: #040c0e;
+}
+QPushButton#essential_btn:checked {
+	background-color: #be9063;
+	color: #040c0e;
+}
+QPushButton#delete_btn:checked {
+	background-color: red;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="color_frame">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>60</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLineEdit" name="name">
+        <property name="text">
+         <string>название</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="color_btn">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>цвет</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="essential_btn">
+        <property name="minimumSize">
+         <size>
+          <width>280</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>обязательный расход</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="delete_btn">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../icons/delete.png</normaloff>../icons/delete.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

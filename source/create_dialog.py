@@ -23,7 +23,7 @@ class CreateDialog(Ui_Dialog, QDialog):
 
         self.stackedWidget.setCurrentIndex(0)
 
-        self.category_cb.addItems(list(map(str, self.db.get_exist_categories())))
+        self.category_cb.addItems(list(map(lambda n: n[1], self.db.get_categories_from_this_user(self.main_menu.user_id))))
 
         self.add_payment_btn.clicked.connect(self.goto_new_payment)
         self.add_category_btn.clicked.connect(self.goto_new_category)
@@ -72,7 +72,7 @@ class CreateDialog(Ui_Dialog, QDialog):
                     essential = self.essential_btn.isChecked()
                     color = self.color
                     if self.is_valid_category(name):
-                        self.db.add_new_category(name, essential, color)
+                        self.db.add_new_category(name, essential, color, self.main_menu.user_id)
                         self.close()
             if int(event.modifiers()) == Qt.ShiftModifier:
                 if event.key() == Qt.Key_E:
