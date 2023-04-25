@@ -51,11 +51,13 @@ class PaymentData(Ui_PaymentData, QWidget):
 
     def fill_widget_layout(self):
         payments = self.db.get_all_payments_from_this_user(self.user_id)
+
         for payment in payments:
             cat = self.db.get_category_by_id(payment[3])
-            w = PaymentDataWidget(payment[2], payment[5], payment[4], cat[3])
-            self.widgets_layout.addWidget(w)
-            print(w.name_lbl)
+            if cat:
+                w = PaymentDataWidget(payment[2], payment[5], payment[4], cat[3])
+                self.widgets_layout.addWidget(w)
+                print(w.name_lbl)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.widgets_layout.addItem(spacerItem)
 
@@ -64,10 +66,18 @@ class PaymentData(Ui_PaymentData, QWidget):
         if kwargs["dt_borders"] and kwargs["categories"]:
             self.filter_settings["dt_borders"] = kwargs["dt_borders"]
             self.filter_settings["categories"] = kwargs["categories"]
+            payments = self.db.get_all_payments_from_this_user(self.user_id)
+            n = len(payments)
+            to_pop = []
+            for i in range(n):
+                if not self.db.get_category_by_id(payments[i][3]):
+                    to_pop.append(i)
+            for i in to_pop:
+                payments.pop(i)
             payments = list(filter(lambda payment: self.db.get_category_by_id(payment[3])[1] in kwargs["categories"]
                                                    and kwargs["dt_borders"][0] <= sql_date_to_qdate(payment[5]) <=
                                                    kwargs["dt_borders"][1],
-                                   self.db.get_all_payments_from_this_user(self.user_id)))
+                                   payments))
             for payment in payments:
                 print(payment[5])
                 cat = self.db.get_category_by_id(payment[3])
