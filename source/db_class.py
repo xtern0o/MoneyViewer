@@ -168,3 +168,10 @@ class Db:
         DELETE FROM categories
         WHERE id = ?
         """, (id, ))
+        self.cur.execute("""
+        DELETE FROM payments
+        WHERE category_id = ?
+        """, (id, ))
+        self.con.commit()
+
+

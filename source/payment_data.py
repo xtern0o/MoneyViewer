@@ -74,6 +74,7 @@ class PaymentData(Ui_PaymentData, QWidget):
                     to_pop.append(i)
             for i in to_pop:
                 payments.pop(i)
+            print(payments)
             payments = list(filter(lambda payment: self.db.get_category_by_id(payment[3])[1] in kwargs["categories"]
                                                    and kwargs["dt_borders"][0] <= sql_date_to_qdate(payment[5]) <=
                                                    kwargs["dt_borders"][1],
