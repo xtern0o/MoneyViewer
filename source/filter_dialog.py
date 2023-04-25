@@ -11,6 +11,7 @@ class FilterDialog(Ui_FilterDialog, QDialog):
     def __init__(self, parent=None):
         super().__init__()
         self.setupUi(self)
+        self.setWindowTitle("Фильтр")
         self.scrollArea.verticalScrollBar().setStyleSheet("""
         
 QScrollBar:vertical
@@ -35,8 +36,8 @@ QScrollBar::handle:vertical
         # self.setWindowFlags(Qt.FramelessWindowHint)
         # self.setAttribute(Qt.WA_TranslucentBackground, True)
 
-        self.payment_data_window = parent
-        self.user_id = self.payment_data_window.user_id
+        self.parent = parent
+        self.user_id = self.parent.user_id
         self.db = Db()
 
         self.categories_from_custom_choice = []
@@ -64,7 +65,7 @@ QScrollBar::handle:vertical
                 date2 = self.dt_2.date()
                 selected_cats = [cat.text() for cat in list(filter(lambda btn: btn.isChecked(),
                                                                    self.categories_from_custom_choice))]
-                self.payment_data_window.refresh(dt_borders=(date1, date2), categories=selected_cats)
+                self.parent.refresh(dt_borders=(date1, date2), categories=selected_cats)
                 self.close()
         if event.key() == Qt.Key_Escape:
             self.close()

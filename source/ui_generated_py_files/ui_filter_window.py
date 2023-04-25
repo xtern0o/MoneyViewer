@@ -180,4 +180,4 @@ class Ui_FilterDialog(object):
         self.notessential_rb.setText(_translate("FilterDialog", "Необязательные"))
         self.other_groups_rb.setText(_translate("FilterDialog", "Другие"))
         self.label.setText(_translate("FilterDialog", "Показать расходы с..."))
-        self.label_3.setText(_translate("FilterDialog", "Filter"))
+        self.label_3.setText(_translate("FilterDialog", "Фильтр"))

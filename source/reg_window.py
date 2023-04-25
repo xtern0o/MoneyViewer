@@ -18,8 +18,6 @@ class RegWindow(Ui_RegWindow, QMainWindow):
         super().__init__()
         self.db = Db()
 
-        print("WTF")
-
         self.setupUi(self)
         self.statusbar.setStyleSheet("color: pink")
 
@@ -35,7 +33,6 @@ class RegWindow(Ui_RegWindow, QMainWindow):
             self.main_menu.show()
             self.close()
         self.last_user_id = data[0] if data else None
-
 
     def login(self):
         user_id = self.db.get_userid_if_correct_pwd(self.login_le.text(), self.password_le.text())
